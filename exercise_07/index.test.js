@@ -3,65 +3,71 @@ import isTypeOf from "./isTypeOf.js";
 
 describe("Given isTypeOf", () => {
     test("When the specified type is not among the allowed types, Then an error is thrown", () => {
-        // Arrange (Given)
-        const value = "test";
-        const invalidType = "object"; // 'object' is not an allowed type in validTypes
+        // Arrange
+        const value = "bar";
+        const invalidType = "function";
 
-        // Act (When) & Assert (Then)
-        expect(() => isTypeOf(value, invalidType)).toThrowError("expected one of 'string', 'number', 'boolean', 'array' but received string");
+        // Act & Assert
+        expect(() => isTypeOf(value, invalidType)).toThrowError(
+            "Expected one of 'string', 'number', 'boolean', 'array', but received 'function'"
+        );
     });
 
     test("When the specified type is undefined, Then an error is thrown", () => {
-        // Arrange (Given)
-        const value = 42;
+        // Arrange
+        const value = 142;
         const invalidType = undefined;
 
-        // Act (When) & Assert (Then)
-        expect(() => isTypeOf(value, invalidType)).toThrowError("expected one of 'string', 'number', 'boolean', 'array' but received undefined");
+        // Act & Assert
+        expect(() => isTypeOf(value, invalidType)).toThrowError(
+            "Expected 'type' to be a string, but received a value of type 'undefined'"
+        );
     });
 
     test("When the specified type is a number instead of a string, Then an error is thrown", () => {
-        // Arrange (Given)
-        const value = true;
-        const invalidType = 123; // Type is a number instead of a string
+        // Arrange
+        const value = false;
+        const invalidType = 123;
 
-        // Act (When) & Assert (Then)
-        expect(() => isTypeOf(value, invalidType)).toThrowError("expected one of 'string', 'number', 'boolean', 'array' but received number");
+        // Act & Assert
+        expect(() => isTypeOf(value, invalidType)).toThrowError(
+            "Expected 'type' to be a string, but received a value of type 'number'"
+        );
     });
 
     test("When value is a string and type is 'string', Then returns true", () => {
-        // Arrange (Given)
-        const value = "Hello, World!";
+        // Arrange
+        const value = "Testing is fun!";
         const type = "string";
 
-        // Act (When)
+        // Act
         const result = isTypeOf(value, type);
 
-        // Assert (Then)
+        // Assert
         expect(result).toBe(true);
     });
 
     test("When value is a number but type is 'string', Then returns false", () => {
-        // Arrange (Given)
-        const value = 100;
+        // Arrange
+        const value = 451;
         const type = "string";
 
-        // Act (When)
+        // Act
         const result = isTypeOf(value, type);
 
-        // Assert (Then)
+        // Assert
         expect(result).toBe(false);
     });
 
-    test("When value is an array and type is 'array', Then returns false", () => {
-        // Arrange (Given)
-        const value = [1, 2, 3];
+    test("When value is an array and type is 'array', Then returns true", () => {
+        // Arrange
+        const value = ["item1", "item2", "item3"];
         const type = "array";
 
-        // Act (When)
+        // Act
         const result = isTypeOf(value, type);
 
-        // Assert (Then)
-        expect(result).toBe(false); // Because typeof [] === 'object', not 'array'
+        // Assert
+        expect(result).toBe(true);
     });
 });
