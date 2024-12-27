@@ -20,4 +20,4 @@ function getDistanceFromThreshold(value, threshold) {
     return threshold - value;
 }
   
-  export default getDistanceFromThreshold  ;
+  export default getDistanceFromThreshold;

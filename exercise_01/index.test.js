@@ -2,66 +2,82 @@ import { describe, test, expect } from "vitest";
 import getDistanceFromThreshold from "./getDistanceFromThreshold.js";
 
 describe("Given getDistanceFromThreshold", () => {
-  test("When the value isn't a number, Then an error is thrown", () => {
-    // Arrange (Given)
+  test("When the value is not a number, Then an error is thrown", () => {
+    // Arrange
     const invalidValue = "Hello, I am a string";
-    const validThreshold = 10;
+    const validThreshold = 8;
 
-    // Act (When) & Assert (Then)
+    // Act & Assert
     expect(() => getDistanceFromThreshold(invalidValue, validThreshold)).toThrowError();
   });
 
-  test("When the value isn't a number, and the threshold is valid Then an error is thrown with the specified message", () => {
-    // Arrange (Given)
-    const invalidValue = true;
+  test("When the value is not a number and the threshold is valid, Then an error is thrown with the correct message", () => {
+    // Arrange
+    const invalidValue = null;
     const validThreshold = 2;
 
-    // Act (When) & Assert (Then)
-    expect(() => getDistanceFromThreshold(invalidValue, validThreshold)).toThrowError("expected number but received boolean");
+    // Act & Assert
+    expect(() => getDistanceFromThreshold(invalidValue, validThreshold)).toThrowError(
+      "expected number but received object"
+    );
   });
 
-  test("When the threshold isn't a number, Then an error is thrown with the specified message", () => {
-    // Arrange (Given)
+  test("When the threshold is not a number, Then an error is thrown with the correct message", () => {
+    // Arrange
     const validValue = 10;
     const invalidThreshold = {};
 
-    // Act (When) & Assert (Then)
-    expect(() => getDistanceFromThreshold(validValue, invalidThreshold)).toThrowError("expected number but received object");
+    // Act & Assert
+    expect(() => getDistanceFromThreshold(validValue, invalidThreshold)).toThrowError(
+      "expected number but received object"
+    );
   });
 
-  test("When both value and threshold are positive, and value < threshold, Then it returns a positive number (threshold - value)", () => {
-    // Arrange (Given)
+  test("When value and threshold are positive and value < threshold, Then it returns a positive number", () => {
+    // Arrange
     const validValue = 10;
     const validThreshold = 15;
 
-    // Act (When)
+    // Act
     const result = getDistanceFromThreshold(validValue, validThreshold);
 
-    // Assert (Then)
+    // Assert
     expect(result).toBe(5);
   });
 
-  test("When both value and threshold are negative, and value > threshold, Then it returns a negative number (threshold - value)", () => {
-    // Arrange (Given)
-    const validValue = -10; 
+  test("When value and threshold are negative and value > threshold, Then it returns a negative number", () => {
+    // Arrange
+    const validValue = -10;
     const validThreshold = -15;
 
-    // Act (When)
+    // Act
     const result = getDistanceFromThreshold(validValue, validThreshold);
 
-    // Assert (Then)
+    // Assert
     expect(result).toBe(-5);
   });
 
-  test("When the value is positive and the threshold is negative (value > threshold), Then the function returns a negative number", () => {
-    // Arrange (Given)
-    const validValue = 10;   // definitely above -15
+  test("When value is positive and threshold is negative, Then it returns a negative number", () => {
+    // Arrange
+    const validValue = 10;
     const validThreshold = -15;
 
-    // Act (When)
+    // Act
     const result = getDistanceFromThreshold(validValue, validThreshold);
 
-    // Assert (Then)
+    // Assert
     expect(result).toBe(-25);
+  });
+
+  test("When value equals threshold, Then it returns 0", () => {
+    // Arrange
+    const validValue = 20;
+    const validThreshold = 20;
+
+    // Act
+    const result = getDistanceFromThreshold(validValue, validThreshold);
+
+    // Assert
+    expect(result).toBe(0);
   });
 });

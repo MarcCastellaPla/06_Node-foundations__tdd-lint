@@ -2,60 +2,64 @@ import { describe, test, expect } from "vitest";
 import getTotalWordsFromString from "./getTotalWordsFromString.js";
 
 describe("Given getTotalWordsFromString", () => {
-    test("When the input isn't a string, Then an error is thrown", () => {
-        // Arrange (Given)
+    test("When the input is not a string, Then an error is thrown", () => {
+        // Arrange
         const invalidInput = 42;
 
-        // Act (When) & Assert (Then)
+        // Act & Assert
         expect(() => getTotalWordsFromString(invalidInput)).toThrowError();
     });
 
-    test("When the input isn't a string, Then an error is thrown with the specified message", () => {
-        // Arrange (Given)
+    test("When the input is not a string, Then an error is thrown with the correct message", () => {
+        // Arrange
         const invalidInput = true;
 
-        // Act (When) & Assert (Then)
-        expect(() => getTotalWordsFromString(invalidInput)).toThrowError("expected string but received boolean");
+        // Act & Assert
+        expect(() => getTotalWordsFromString(invalidInput)).toThrowError(
+            "expected string but received boolean"
+        );
     });
 
-    test("When the input is undefined, Then an error is thrown with the specified message", () => {
-        // Arrange (Given)
+    test("When the input is undefined, Then an error is thrown with the correct message", () => {
+        // Arrange
         const invalidInput = undefined;
-    
-        // Act (When) & Assert (Then)
-        expect(() => getTotalWordsFromString(invalidInput)).toThrowError("expected string but received undefined");
+
+        // Act & Assert
+        expect(() => getTotalWordsFromString(invalidInput)).toThrowError(
+            "expected string but received undefined"
+        );
     });
-    
+
     test("When the input is a single word, Then the function returns 1", () => {
-        // Arrange (Given)
+        // Arrange
         const input = "hello";
 
-        // Act (When)
+        // Act
         const result = getTotalWordsFromString(input);
 
-        // Assert (Then)
+        // Assert
         expect(result).toBe(1);
     });
 
     test("When the input is a sentence with multiple words, Then the function returns the correct count", () => {
-        // Arrange (Given)
+        // Arrange
         const input = "This is a test sentence.";
 
-        // Act (When)
+        // Act
         const result = getTotalWordsFromString(input);
 
-        // Assert (Then)
+        // Assert
         expect(result).toBe(5); // The sentence has 5 words
     });
 
     test("When the input has extra spaces, Then the function ignores them and returns the correct word count", () => {
-        // Arrange (Given)
-        const input = "   Extra   spaces   between words   ";
+        // Arrange
+        const input = "   More   spaces   between   the   words   ";
 
-        // Act (When)
+        // Act
         const result = getTotalWordsFromString(input);
 
-        // Assert (Then)
-        expect(result).toBe(4); // Ignore leading, trailing, and multiple spaces
+        // Assert
+        expect(result).toBe(5); // Ignore leading, trailing, and multiple spaces
     });
 });

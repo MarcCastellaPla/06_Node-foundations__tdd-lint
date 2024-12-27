@@ -5,7 +5,7 @@
  */
 const getTotalWordsFromString = function (sentence) {
     if (typeof sentence !== "string") {
-        throw new TypeError("expected string but received " + typeof sentence);
+        throw new TypeError(`expected string but received ${typeof sentence}`);
     }
 
     if (sentence === "") {
