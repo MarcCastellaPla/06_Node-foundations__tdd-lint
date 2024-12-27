@@ -11,14 +11,14 @@
     "url": "git+https://github.com/MarcCastellaPla/06_Node-foundations__tdd-lint.git"
   },
   "keywords": [
-    "\"node\"",
-    "\"exercises\"",
-    "\"testing\"",
-    "\"vitest\"",
-    "\"tdd\"",
-    "\"javascript\"",
-    "\"unit-testing\"",
-    "\"nodejs\""
+    "node",
+    "exercises",
+    "testing",
+    "vitest",
+    "tdd",
+    "javascript",
+    "unit-testing",
+    "nodejs"
   ],
   "author": "Marc Castella Pla",
   "license": "ISC",
