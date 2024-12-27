@@ -2,7 +2,7 @@ import { describe, test, expect } from "vitest";
 import formatStringByWordsLength from "./formatStringByWordsLength.js";
 
 describe("Given formatStringByWordsLength", () => {
-    test("When the input is not a string (number), Then an error is thrown", () => {
+    test("When the input is not a string (number), Then an error is thrown with the specified message", () => {
         // Arrange (Given)
         const invalidInput = 12345;
 
@@ -10,7 +10,7 @@ describe("Given formatStringByWordsLength", () => {
         expect(() => formatStringByWordsLength(invalidInput)).toThrowError("expected string but received number");
     });
 
-    test("When the input is not a string (boolean), Then an error is thrown", () => {
+    test("When the input is not a string (boolean), Then an error is thrown with the specified message", () => {
         // Arrange (Given)
         const invalidInput = true;
 
@@ -18,7 +18,7 @@ describe("Given formatStringByWordsLength", () => {
         expect(() => formatStringByWordsLength(invalidInput)).toThrowError("expected string but received boolean");
     });
 
-    test("When the input is not a string (null), Then an error is thrown", () => {
+    test("When the input is not a string (null), Then an error is thrown with the specified message", () => {
         // Arrange (Given)
         const invalidInput = null;
 

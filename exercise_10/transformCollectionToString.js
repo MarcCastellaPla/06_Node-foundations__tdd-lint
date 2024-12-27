@@ -13,9 +13,10 @@ const transformCollectionToString = function (collection) {
         throw new TypeError("expected array but received " + typeof collection);
     }
 
-    return checkCollectionHasElements(collection) 
-        ? collection.map(item => String(item)).join("|") 
-        : "";
-}
-
+    if (checkCollectionHasElements(collection)) {
+        return collection.map(item => String(item)).join("|");
+    }
+    
+    return "";
+};
 export default transformCollectionToString;

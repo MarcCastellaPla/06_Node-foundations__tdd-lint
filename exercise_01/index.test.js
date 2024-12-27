@@ -8,8 +8,7 @@ describe("Given getDistanceFromThreshold", () => {
     const validThreshold = 10;
 
     // Act (When) & Assert (Then)
-    expect(() => getDistanceFromThreshold(invalidValue, validThreshold))
-      .toThrowError();
+    expect(() => getDistanceFromThreshold(invalidValue, validThreshold)).toThrowError();
   });
 
   test("When the value isn't a number, and the threshold is valid Then an error is thrown with the specified message", () => {
@@ -18,8 +17,7 @@ describe("Given getDistanceFromThreshold", () => {
     const validThreshold = 2;
 
     // Act (When) & Assert (Then)
-    expect(() => getDistanceFromThreshold(invalidValue, validThreshold))
-      .toThrowError("expected number but received boolean");
+    expect(() => getDistanceFromThreshold(invalidValue, validThreshold)).toThrowError("expected number but received boolean");
   });
 
   test("When the threshold isn't a number, Then an error is thrown with the specified message", () => {

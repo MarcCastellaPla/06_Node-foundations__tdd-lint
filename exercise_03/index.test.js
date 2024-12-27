@@ -2,7 +2,6 @@ import { describe, test, expect, vi } from "vitest";
 import generateRandomNumberInRange from "./generateRandomNumberInRange.js";
 
 describe("Given generateRandomNumberInRange", () => {
-    // Error Tests
     test("When input is not a number, Then it throws a TypeError with the correct message", () => {
         // Arrange
         const invalidInput = "10";
@@ -28,7 +27,6 @@ describe("Given generateRandomNumberInRange", () => {
         expect(() => generateRandomNumberInRange(invalidInput)).toThrowError("expected number but received object");
     });
 
-    // Success Tests
     test("When Math.random returns 0, Then the result is 0 regardless of the limit", () => {
 
         // Arrange (Given)
@@ -44,7 +42,6 @@ describe("Given generateRandomNumberInRange", () => {
         // Assert (Then)
         expect(result).toBe(expectedResult);
 
-        // Restore Math.random
         spy.mockRestore();
     });
 
@@ -63,7 +60,6 @@ describe("Given generateRandomNumberInRange", () => {
         // Assert (Then)
         expect(result).toBe(expectedResult);
 
-        // Restore Math.random
         spy.mockRestore();
     });
 
@@ -81,7 +77,6 @@ describe("Given generateRandomNumberInRange", () => {
         // Assert
         expect(result).toBe(expectedResult);
 
-        // Restore Math.random
         spy.mockRestore();
     });
 });

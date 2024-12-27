@@ -2,6 +2,7 @@
  * Checks if a collection (array) has elements.
  * @param {Array} collection - The array (collection) to check.
  * @returns {boolean} Returns true if the collection has elements, otherwise false.
+ * @throws {TypeError} Throws if the input is not an array.
  */
 const checkCollectionHasElements = function (collection) {
     if (!Array.isArray(collection)) {

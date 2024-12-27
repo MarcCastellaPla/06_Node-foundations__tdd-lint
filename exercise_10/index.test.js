@@ -1,9 +1,9 @@
 import { describe, test, expect, vi } from "vitest";
 import transformCollectionToString from "./transformCollectionToString.js";
-import * as checkCollectionHasElementsModule from "../exercise_06/checkCollectionHasElements.js";
+import checkCollectionHasElements from "../exercise_06/checkCollectionHasElements.js";
 
 describe("Given transformCollectionToString", () => {
-    test("When the input is not an array (string), Then an error is thrown", () => {
+    test("When the input is not an array (string), Then an error is thrown with the specified message", () => {
         // Arrange (Given)
         const invalidInput = "not an array";
 
@@ -11,7 +11,7 @@ describe("Given transformCollectionToString", () => {
         expect(() => transformCollectionToString(invalidInput)).toThrowError("expected array but received string");
     });
 
-    test("When the input is not an array (number), Then an error is thrown", () => {
+    test("When the input is not an array (number), Then an error is thrown with the specified message", () => {
         // Arrange (Given)
         const invalidInput = 12345;
 
@@ -19,7 +19,7 @@ describe("Given transformCollectionToString", () => {
         expect(() => transformCollectionToString(invalidInput)).toThrowError("expected array but received number");
     });
 
-    test("When the input is not an array (null), Then an error is thrown", () => {
+    test("When the input is not an array (null), Then an error is thrown with the specified message", () => {
         // Arrange (Given)
         const invalidInput = null;
 
@@ -27,13 +27,12 @@ describe("Given transformCollectionToString", () => {
         expect(() => transformCollectionToString(invalidInput)).toThrowError("expected array but received object");
     });
 
-    // Functional tests
     test("When the array has elements, Then returns the elements joined by '|'", () => {
         // Arrange (Given)
         const input = ["apple", "banana", "cherry"];
 
         // Spy on checkCollectionHasElements and mock its return value
-        const hasElementsSpy = vi.spyOn(checkCollectionHasElementsModule, 'default').mockReturnValue(true);
+        const hasElementsSpy = vi.spyOn({ checkCollectionHasElements }, 'checkCollectionHasElements').mockReturnValue(true);
 
         // Act (When)
         const result = transformCollectionToString(input);
@@ -50,7 +49,7 @@ describe("Given transformCollectionToString", () => {
         const input = [];
 
         // Spy on checkCollectionHasElements and mock its return value
-        const hasElementsSpy = vi.spyOn(checkCollectionHasElementsModule, 'default').mockReturnValue(false);
+        const hasElementsSpy = vi.spyOn({ checkCollectionHasElements }, 'checkCollectionHasElements').mockReturnValue(false);
 
         // Act (When)
         const result = transformCollectionToString(input);

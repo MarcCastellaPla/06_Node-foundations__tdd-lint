@@ -3,6 +3,7 @@
  * @param {number} summand1 - The first number to add.
  * @param {number} summand2 - The second number to add.
  * @returns {boolean} True if the sum is 50 or greater, otherwise false.
+ * @throws {TypeError} Throws if either input is not a number.
  */
 const isAdditionGreaterThanFifty = function (summand1, summand2) {
     const threshold = 50;

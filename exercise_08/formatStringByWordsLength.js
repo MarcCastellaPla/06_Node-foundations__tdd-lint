@@ -6,6 +6,7 @@ import getTotalWordsFromString from '../exercise_02/getTotalWordsFromString.js';
  * Otherwise, returns the string in lowercase.
  * @param {string} sentence - The string whose number of words will be checked.
  * @returns {string} The formatted string in either uppercase or lowercase.
+ * @throws {TypeError} Throws if the input is not a string.
  */
 const formatStringByWordsLength = function (sentence) {
     if (typeof sentence !== "string") {
