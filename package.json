@@ -1,0 +1,32 @@
+{
+  "name": "06_node-foundations__tdd-lint",
+  "version": "1.0.0",
+  "description": "A Node.js project with Vitest testing framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcCastellaPla/06_Node-foundations__tdd-lint.git"
+  },
+  "keywords": [
+    "node",
+    "exercises",
+    "testing",
+    "vitest",
+    "tdd",
+    "javascript",
+    "unit-testing",
+    "nodejs"
+  ],
+  "author": "Marc Castella Pla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcCastellaPla/06_Node-foundations__tdd-lint/issues"
+  },
+  "homepage": "https://github.com/MarcCastellaPla/06_Node-foundations__tdd-lint#readme",
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}

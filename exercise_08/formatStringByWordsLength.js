@@ -1,8 +1,27 @@
+import getTotalWordsFromString from '../exercise_02/getTotalWordsFromString.js';
+
 /**
- * #8 :: Export JS function "formatStringByWordsLength" to check number of words contained in given string
- * - if total number of words is greater than 5, then return uppercase string
- * - otherwise, return lowercase string
- * input: string (sentence)
- * output: string
- * validate input: throw TypeError with message "expected string but received <type-of-argument>" if input is not a string
+ * Converts the case of a given string based on the number of words in it.
+ * - If the total number of words is greater than 5, returns the string in uppercase.
+ * - Otherwise, returns the string in lowercase.
+ * 
+ * @param {string} sentence - The string to format based on its word count.
+ * @returns {string} The formatted string in either uppercase or lowercase.
+ * @throws {TypeError} Throws if the input is not a string.
  */
+const formatStringByWordsLength = function (sentence) {
+    if (typeof sentence !== "string") {
+        throw new TypeError(`expected string but received ${typeof sentence}`);
+    }
+
+    const totalWords = getTotalWordsFromString(sentence);
+    const threshold = 5;
+
+    if (totalWords > threshold) {
+        return sentence.toUpperCase();
+    }
+
+    return sentence.toLowerCase();
+};
+
+export default formatStringByWordsLength;
