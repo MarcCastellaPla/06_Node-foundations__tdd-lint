@@ -14,7 +14,7 @@ describe("Given isGreaterThan", () => {
     test("When the second input is not a number, Then it throws an error with the correct message", () => {
         // Arrange
         const value = 20;
-        const invalidThreshold = null; // typeof null is 'object'
+        const invalidThreshold = null;
 
         // Act & Assert
         expect(() => isGreaterThan(value, invalidThreshold)).toThrowError("expected number but received object");

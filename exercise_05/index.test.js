@@ -4,7 +4,7 @@ import isAdditionGreaterThanFifty from "./isAdditionGreaterThanFifty.js";
 describe("Given isAdditionGreaterThanFifty", () => {
     test("When the first input is not a number, Then it throws an error with the correct message", () => {
         // Arrange
-        const invalidInput = "141"; // string instead of number
+        const invalidInput = "141";
         const summand2 = 78;
 
         // Act & Assert
@@ -16,7 +16,7 @@ describe("Given isAdditionGreaterThanFifty", () => {
     test("When the second input is not a number, Then it throws an error with the correct message", () => {
         // Arrange
         const summand1 = 99;
-        const invalidInput = undefined; // undefined instead of number
+        const invalidInput = undefined;
 
         // Act & Assert
         expect(() => isAdditionGreaterThanFifty(summand1, invalidInput)).toThrowError(
@@ -26,8 +26,8 @@ describe("Given isAdditionGreaterThanFifty", () => {
 
     test("When both inputs are not numbers, Then it throws an error for the first invalid input", () => {
         // Arrange
-        const invalidInput1 = false; // boolean
-        const invalidInput2 = "I am not a number"; // string
+        const invalidInput1 = false;
+        const invalidInput2 = "I am not a number";
 
         // Act & Assert
         expect(() => isAdditionGreaterThanFifty(invalidInput1, invalidInput2)).toThrowError(

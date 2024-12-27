@@ -49,7 +49,7 @@ describe("Given getTotalWordsFromString", () => {
         const result = getTotalWordsFromString(input);
 
         // Assert
-        expect(result).toBe(5); // The sentence has 5 words
+        expect(result).toBe(5);
     });
 
     test("When the input has extra spaces, Then the function ignores them and returns the correct word count", () => {
@@ -60,6 +60,6 @@ describe("Given getTotalWordsFromString", () => {
         const result = getTotalWordsFromString(input);
 
         // Assert
-        expect(result).toBe(5); // Ignore leading, trailing, and multiple spaces
+        expect(result).toBe(5);
     });
 });

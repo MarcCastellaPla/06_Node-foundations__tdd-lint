@@ -29,7 +29,7 @@ describe("Given generateRandomNumberInRange", () => {
     test("When Math.random returns 0, Then the result is 0 regardless of the limit", () => {
         // Arrange
         const limit = 1899;
-        const mockedRandomValue = 0; // Mocked random value
+        const mockedRandomValue = 0;
         const expectedResult = Math.round(mockedRandomValue * limit);
 
         const spy = vi.spyOn(Math, "random").mockReturnValue(mockedRandomValue);
@@ -47,7 +47,7 @@ describe("Given generateRandomNumberInRange", () => {
     test("When Math.random returns 1, Then the result equals the limit", () => {
         // Arrange
         const limit = 10;
-        const mockedRandomValue = 1; // Mocked random value
+        const mockedRandomValue = 1;
         const expectedResult = Math.round(mockedRandomValue * limit);
 
         const spy = vi.spyOn(Math, "random").mockReturnValue(mockedRandomValue);
