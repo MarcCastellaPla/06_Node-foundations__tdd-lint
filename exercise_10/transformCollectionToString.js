@@ -1,8 +1,21 @@
+import checkCollectionHasElements from "../exercise_06/checkCollectionHasElements.js";
+
 /**
- * #10 :: Export JS function "transformCollectionToString" to transform collection into string
- * - if array has elements, then return array as string, joined by '|' (pipe character)
- * - otherwise, return an empty string
- * input: array (collection)
- * output: string
- * validate input: throw TypeError with message "expected array but received <type-of-argument>" if input is not an array
+ * Transforms an array into a string.
+ * - If the array has elements, it returns the elements joined by '|' (pipe character).
+ * - Otherwise, it returns an empty string.
+ * @param {Array} collection - The array (collection) to be transformed into a string.
+ * @returns {string} The resulting string or an empty string if the array is empty.
+ * @throws {TypeError} If the input is not an array.
  */
+const transformCollectionToString = function (collection) {
+    if (!Array.isArray(collection)) {
+        throw new TypeError("expected array but received " + typeof collection);
+    }
+
+    return checkCollectionHasElements(collection) 
+        ? collection.map(item => String(item)).join("|") 
+        : "";
+}
+
+export default transformCollectionToString;

@@ -1,7 +1,17 @@
 /**
- * #7 :: Export JS function "isTypeOf" to check if type of value matches type received as argument
- * input: any (value)
- * input: 'string' | 'number' | 'boolean' | 'array' (type)
- * output: boolean
- * validate input: throw TypeError with message "expected one of 'string', 'number', 'boolean', 'array' but received <type-of-argument>" if type is not valid
+ * Checks if the type of a value matches the specified type.
+ * @param {any} value - The value to check.
+ * @param {'string' | 'number' | 'boolean' | 'array'} type - The type to check against.
+ * @returns {boolean} True if the type matches, false otherwise.
  */
+const isTypeOf = function (value, type) {
+    const validTypes = ["string", "number", "boolean", "array"];
+
+    if (!validTypes.includes(type)) {
+        throw new TypeError(`expected one of 'string', 'number', 'boolean', 'array' but received ${typeof type}`);
+    }
+
+    return typeof value === type;
+}
+
+export default isTypeOf;
